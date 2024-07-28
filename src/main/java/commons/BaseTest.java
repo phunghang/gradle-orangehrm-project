@@ -20,17 +20,10 @@ public class BaseTest {
 		BrowserList browser = BrowserList.valueOf(driverName.toUpperCase());
 
 		switch (browser) {
-		case CHROME:
-			driver = new ChromeDriver();
-			break;
-		case FIREFOX:
-			driver = new FirefoxDriver();
-			break;
-		case EDGE:
-			driver = new EdgeDriver();
-			break;
-		default:
-			throw new RuntimeException("Chưa có browser: " + browser);
+			case CHROME -> driver = new ChromeDriver();
+			case FIREFOX -> driver = new FirefoxDriver();
+			case EDGE -> driver = new EdgeDriver();
+			default -> throw new RuntimeException("Chưa có browser: " + browser);
 		}
 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GlobalConstants.LONG_TIMEOUT));

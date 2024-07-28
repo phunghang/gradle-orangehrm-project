@@ -24,6 +24,9 @@ dependencies {
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-support', version: '4.16.1'
     // https://mvnrepository.com/artifact/com.aventstack/extentreports
     implementation group: 'com.aventstack', name: 'extentreports', version: '5.1.0'
+    // https://mvnrepository.com/artifact/net.datafaker/datafaker
+    implementation group: 'net.datafaker', name: 'datafaker', version: '2.1.0'
+
 }
 
 test {
