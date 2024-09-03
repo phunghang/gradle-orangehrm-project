@@ -26,11 +26,29 @@ dependencies {
     implementation group: 'com.aventstack', name: 'extentreports', version: '5.1.0'
     // https://mvnrepository.com/artifact/net.datafaker/datafaker
     implementation group: 'net.datafaker', name: 'datafaker', version: '2.1.0'
+    // https://mvnrepository.com/artifact/org.aeonbits.owner/owner
+    implementation group: 'org.aeonbits.owner', name: 'owner', version: '1.0.12'
+
 
 }
 
 test {
+    // Cách 1: Run cmd truyền biến -DENV= để xác định môi trường chạy test
+    // Cách 2: Đăng ký tasks test như bên dưới, mỗi môi trường chạy 1 file xml riêng
     useTestNG {
         suites 'src/test/resources/RunOrangeHRMTestcase.xml'
+    }
+    jvmArgs '-DENV=' + System.getProperty("ENV")
+}
+
+tasks.register("Run_on_dev", Test) {
+    useTestNG {
+        suites 'src/test/resources/RunOnDev.xml'
+    }
+}
+
+tasks.register("Run_on_staging", Test) {
+    useTestNG {
+        suites 'src/test/resources/RunOnStaging.xml'
     }
 }

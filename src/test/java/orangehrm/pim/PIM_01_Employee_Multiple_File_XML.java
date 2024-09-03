@@ -17,9 +17,8 @@ import utilities.FakerConfig;
 
 import java.lang.reflect.Method;
 
-public class PIM_01_Employee extends BaseTest {
+public class PIM_01_Employee_Multiple_File_XML extends BaseTest {
     WebDriver driver;
-
     private Environment environment;
     private String browserName, employeeId;
     private LoginPO loginPage;
@@ -30,16 +29,11 @@ public class PIM_01_Employee extends BaseTest {
     private FakerConfig fakerConfig;
     private String firstname, lastname;
 
-    @Parameters({"browser"})
+    @Parameters({"env", "browser"})
     @BeforeClass
-    public void beforeClass(String browserName) {
-        // Lấy môi trường truyền vào từ cmd ( gradle clean test -DENV = dev)
-        String env = System.getProperty("ENV");
-        // Set giá trị cho biến environment trong Environment
+    public void beforeClass(String env, String browserName) {
         ConfigFactory.setProperty("environment", env);
-        // Khởi tạo environment
         environment = ConfigFactory.create(Environment.class);
-
         driver = getWebDriver(browserName, environment.getUrl());
         this.browserName = browserName;
         fakerConfig = FakerConfig.getFaker();

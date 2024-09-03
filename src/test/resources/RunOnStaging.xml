@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="OrangeHRM">
 
+	<parameter name="env" value="staging" />
 	<listeners>
 		<listener class-name="reportConfig.ExtentTestListener" />
 	</listeners>
@@ -9,7 +10,7 @@
 	<test name="Run on chrome" preserve-order="true">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="orangehrm.pim.PIM_01_Employee" />
+			<class name="orangehrm.pim.PIM_01_Employee_Multiple_File_XML" />
 		</classes>
 	</test>
 <!--	<test name="Run on edge">-->
